@@ -1,4 +1,11 @@
-document.addEventListener("DOMContentLoaded", function(){
+$(document).ready(function () {
+
+
+
+
+
+
+
 
 
 
@@ -12,4 +19,4 @@ document.addEventListener("DOMContentLoaded", function(){
 
     
 
-}); // end docLoaded
+}) // end ready
