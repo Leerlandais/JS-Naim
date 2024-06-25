@@ -12,7 +12,8 @@ runOnce();
 */
 
 // déclaration des nécessaires const et let
-const listContainer = document.getElementById("listContainer");
+const   listContainer = document.getElementById("listContainer"),
+        noListMessage = document.getElementById("noListMessage");
 
 let listCount = localStorage.getItem("listCount"),
     listArray = [];
@@ -83,42 +84,12 @@ function addButtonToList() {
 
 }
 
-startListCreation (listArray); // lancement de la fonctionne pour démarré le création de la liste
-
-
-
-
-
-
-/*
-// Function to add a new task
-function addTask(taskText) {
-    // Create the list item
-    const listItem = document.createElement('div');
-    listItem.className = 'flex items-center justify-between p-2 border-b';
-
-    // Create the task text element
-    const task = document.createElement('span');
-    task.className = 'flex-grow';
-    task.textContent = taskText;
-
-    // Create the delete button
-    const deleteButton = document.createElement('button');
-    deleteButton.className = 'bg-red-500 text-white px-2 py-1 rounded';
-    deleteButton.textContent = 'Delete';
-    deleteButton.onclick = function() {
-        listItem.remove();
-    };
-
-    // Append the task and delete button to the list item
-    listItem.appendChild(task);
-    listItem.appendChild(deleteButton);
-
-    // Append the list item to the main list container
-    document.getElementById('todo-list').appendChild(listItem);
+if (listCount != null) {
+    startListCreation (listArray); // lancement de la fonctionne pour démarré le création de la liste
+}else {
+    noListMessage.textContent = "Pas encore d'élement dans la liste";
 }
 
-// Example usage
-addTask('Learn JavaScript');
-addTask('Build a To-Do List');
-*/
+
+
+
