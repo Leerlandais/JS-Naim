@@ -1,12 +1,12 @@
 /*
-// Petit fonction pour remplir vite fait le localStorage (LS) afin de commencer création du liste (l'ajout via HTML n'est pas encore ajouté) 
+// Petit fonction pour remplir vite fait le sessionStorage (LS) afin de commencer création du liste (l'ajout via HTML n'est pas encore ajouté) 
 function runOnce() {
     let count = 0;
     for (let i = 0; i <3; i++) {
-        localStorage.setItem("listItem"+i, "Item "+i);
+        sessionStorage.setItem("listItem"+i, "Item "+i);
         count++;
     }
-    localStorage.setItem("listCount", count);
+    sessionStorage.setItem("listCount", count);
 }
 runOnce();
 */
@@ -18,7 +18,7 @@ const   listContainer   = document.getElementById("listContainer"),
         addItemText     = document.getElementById('addItemText'),
         addItemBttn     = document.getElementById("addItemBttn");
 
-let listCount = localStorage.getItem("listCount"),
+let listCount = sessionStorage.getItem("listCount"),
     listArray = [];
 
 
@@ -30,8 +30,8 @@ addItemForm.addEventListener('submit', function (form) {
 function addNewListItem() {
     let newText  = addItemText.value;
     listCount++;
-    localStorage.setItem("listCount", listCount);
-    localStorage.setItem("listItem"+listCount, newText);
+    sessionStorage.setItem("listCount", listCount);
+    sessionStorage.setItem("listItem"+listCount, newText);
     window.location.reload();
 }
 
@@ -45,9 +45,10 @@ function deleteListItem() {
 function startListCreation(list) {
  
     let i = 0;
+
     while (listArray.length < listCount) {
-        if (localStorage.getItem("listItem"+i) != null) {
-            listArray.push(localStorage.getItem("listItem"+i));           
+        if (sessionStorage.getItem("listItem"+i) != null) {
+            listArray.push(sessionStorage.getItem("listItem"+i));           
         }else {
             console.log("listItem"+i +" is empty");
         }

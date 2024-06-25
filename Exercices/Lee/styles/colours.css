@@ -8,7 +8,7 @@
     height: 300vh;
 }
 
-body, .bodyGreen {
+.bodyGreen {
     background: hsla(157, 14%, 57%, 1);
     background: linear-gradient(-90deg, hsla(157, 14%, 57%, 1) 0%, hsla(152, 17%, 94%, 1) 100%);
     background: -moz-linear-gradient(-90deg, hsla(157, 14%, 57%, 1) 0%, hsla(152, 17%, 94%, 1) 100%);
@@ -17,7 +17,7 @@ body, .bodyGreen {
     height: 300vh;
 }
 
-.bodyBlue {
+body, .bodyBlue {
     background: hsla(217, 14%, 57%, 1);
     background: linear-gradient(-90deg, hsla(217, 14%, 57%, 1) 0%, hsla(212, 17%, 94%, 1) 100%);
     background: -moz-linear-gradient(-90deg, hsla(217, 14%, 57%, 1) 0%, hsla(212, 17%, 94%, 1) 100%);
