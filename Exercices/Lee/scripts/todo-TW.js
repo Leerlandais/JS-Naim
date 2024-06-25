@@ -12,12 +12,30 @@ runOnce();
 */
 
 // déclaration des nécessaires const et let
-const   listContainer = document.getElementById("listContainer"),
-        noListMessage = document.getElementById("noListMessage");
+const   listContainer   = document.getElementById("listContainer"),
+        noListMessage   = document.getElementById("noListMessage"),
+        addItemForm     = document.getElementById("addItemForm"),
+        addItemText     = document.getElementById('addItemText'),
+        addItemBttn     = document.getElementById("addItemBttn");
 
 let listCount = localStorage.getItem("listCount"),
     listArray = [];
-// console.log (listCount) // ce-fois, je laisse toutes mes utilisations de console.log en commentaire
+
+
+addItemForm.addEventListener('submit', function (form) {
+    form.preventDefault();
+    addNewListItem();
+});
+
+function addNewListItem() {
+    let newText  = addItemText.value;
+    listCount++;
+    localStorage.setItem("listCount", listCount);
+    localStorage.setItem("listItem"+listCount, newText);
+    window.location.reload();
+}
+
+
 
 
 
@@ -84,9 +102,10 @@ function addButtonToList() {
 
 }
 
-if (listCount != null) {
+if (listCount != null && listCount != 0) {
     startListCreation (listArray); // lancement de la fonctionne pour démarré le création de la liste
 }else {
+    listCount = 0;
     noListMessage.textContent = "Pas encore d'élement dans la liste";
 }
 
